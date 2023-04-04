@@ -1,5 +1,6 @@
 <!-- %%Zixun Huang 3038564193 Apr 3rd%%
  -->
+
 ## 1. How to calculate Fundamental Matrix
 ### Epipolar Constraint
 Based on epipolar geometry, we have $x_{2}^TFx_{1}=0$, where $F$ is the fundamental matrix, and 
@@ -168,17 +169,24 @@ def normalize_matrix(x,y,r=np.sqrt(2)):
 5. denormalize
 
 ##### Is the Residual Error what we are directly optimizing using SVD when solving the homogeneous system? If yes, explain. If no, how does the objective relate to the residual?
-- It's not the identical to the thing we are directly optimizing, but they relate.
+- It's not the identical to the thing we are directly optimizing, but they are highly related.
 - The geometric representation of 8-point algorithm:
 	- What we are optimizing in 8-point algorithm is the coplanarity of 3 vectors w.r.t the relative camera orientation:
 		- The first vector is the translation between two camera. $^0t$
 		- Second, the ray passing through the point on image1 from the first camera (center of projection). $^1Rx_{1}$ 
 		- Then, the ray passing through the corresponding point on image2 from the second camera. $^2x_{2}$
 	- In other words, we pick the optimal relative camera orientation so that the 2 rays $^{1,2}$ approximately intersect. 
-- Then **what are we directly optimizing**? 
-	- Think about the epipolar geometry with calibated cameras, what we are optimizing is $x_{2}^T[T_{\times}]Rx_{1}=\lvert x_{2} \rvert\lvert t\wedge Rx_{1} \rvert cos\theta=\lvert x_{2} \rvert\lvert t\wedge Rx_{1} \rvert \sin\theta'$, where $\theta'$ is the angle between the vector $x_{2}$ and the plane spanned by $t$ and $Rx_{1}$. 
-	- Since the norms of conefficients are normalized and fixed, what we are directly optimizing actually is just $\theta'$, we are finding the relative camera orientation ($R|t$) to minimize the angle $\theta'$, so that $t$, $Rx_{1}$, $x_{2}$ are coplanar.
+- Then **what are we directly optimizing**? Is it equivalent to the residual?
+	- Think about the epipolar geometry with calibated cameras, what we are optimizing is $\lvert x_{2}^T[T_{\times}]Rx_{1} \rvert=\lvert \lvert x_{2} \rvert \rvert *\lvert \lvert t\wedge Rx_{1} \rvert\rvert*\lvert cos\theta \rvert=\lvert \lvert x_{2} \rvert \rvert *\lvert \lvert t\wedge Rx_{1} \rvert\rvert*\lvert\sin\theta' \rvert=\lvert \lvert t\wedge Rx_{1} \rvert\rvert*d_{2\to1}$, where $\theta'=\frac{\pi}{2}-\theta$ is the angle between the vector $x_{2}$ and the optimal epipolar plane spanned by $t$ and $Rx_{1}$. 
+	- So we can see the term $\lvert \lvert x_{2} \rvert \rvert *\lvert\sin\theta' \rvert=d_{2\to1}$  is actually the distance between the point in image2 and the corresponding epipolar plane.
+	- We can further derive the remaining term into $\lvert \lvert t\wedge Rx_{1} \rvert\rvert = \lvert \lvert t\rvert \rvert *\lvert \lvert Rx_{1} \rvert\rvert*\lvert\sin\beta \rvert$. This is the distance between the second camera (center of projection) and the ray $Rx_{1}$. This term might look useless for optimization goal, even though we can see that the whole expression turns to zero when $\beta=0$, i.e., $x_{1}$ overlaps its epipolar, $d_{1\to2}=0$.
+	- Now we can prove that the expression we are optimizing is not equivalent to the residual error. When $\beta=0\&\&\theta'\neq 0$, the epipolar constraint $\lvert x_{2}^T[T_{\times}]Rx_{1} \rvert$ equals zero, while the residual error $(d_{1\to2}^2+d_{2\to1}^2)/2$ equals $\frac{1}{2}d_{2\to1}^2$ which may not be zero.
+	
 - What's **the relation between this objective and the residual**?
+	- We've already see the epipolar constraint is $\lvert \lvert t\wedge Rx_{1} \rvert\rvert*d_{2\to1}$, while the residual is $(d_{1\to2}^2+d_{2\to1}^2)/2$. Both of them are minimizing the distance between the points and the corresponding epipolar lines.
+	- The main difference is that the former is evaluating the coplanarity of  $t$, $Rx_{1}$, $x_{2}$, while the latter is evaluating the dist between points and their corresponding epipolar planes. 
+	- One simple case to distinguish these two is the case which I mentioned above. When $x_{1}$ overlaps its epipolar, i.e. the translation $t$ is co-linear with $Rx_{1}$, and $x_{2}$ is at an angle to its epipolar plane, i.e. $\theta'\neq 0$, we can see:
+		- $coplanarity=x_{2}^TFx_{1}=0$, but $residual>0$. when $\theta'\neq 0$ and $\beta=0$.
 
 
 ## 2. Find Relative Camera Orientation (R|t)

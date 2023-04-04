@@ -1,4 +1,6 @@
-## Find Fundamental Matrix Using Epipolar Constraint
+%%Zixun Huang 3038564193 Apr 3rd%%
+
+## 1. How to calculate Fundamental Matrix
 ### Epipolar Constraint
 Based on epipolar geometry, we have $x_{2}^TFx_{1}=0$, where $F$ is the fundamental matrix, and 
 
@@ -73,7 +75,7 @@ We can approximately set $f$ as the transpose of the row entries of $V^T$, i.e. 
 1. Because $V$ is an orthogonal matrix, the row entries of $V^T$ are orthogonal with each other, i.e. the dot product between should be zero. By set $\vec{f}$ as one singular vector, we will have 
 
 $$
-V^Tf=\[0,0,0,0,0,0,0,0,\lvert\lvert\vec{f}\rvert\rvert_{2}^2\]^T=
+V^Tf=[0,0,0,0,0,0,0,0,\lvert\lvert\vec{f}\rvert\rvert_{2}^2]^T=
 \begin{bmatrix}
 0_{8 \times 1}\\ 
 1 \\ 
@@ -96,7 +98,6 @@ diag(\sigma_{i})_{9 \times 9}\\
 
 3. After solve $f$, we can reshape it back to $F\in R^{3 \times3}$.
 4. Think about essential matrix $E=t\wedge R=[t_{\times}]R$, where $[t_{\times}]$ has rank 2. So we need to enforce $F$ has rank 2 as well.
-
 ```python
 def fundamental_matrix(matches):
     '''normalize'''
@@ -152,7 +153,36 @@ def normalize_matrix(x,y,r=np.sqrt(2)):
                 [0, 0, 1]), axis = 1)
     return T
 ```
+
+
 ### Residual Error
 
+
+
+### Deliverables
+##### Here is how to approximately solve the fundamental matrix step by step: 
+1. normalize the corresponding points
+2. concat the epipolar constraints provided by those matches into a linear system
+3. use SVD to approximately solve the linear system
+4. reshape and enforce the fundamental matrix to rank 2
+5. denormalize
+
+##### Is the Residual Error what we are directly optimizing using SVD when solving the homogeneous system? If yes, explain. If no, how does the objective relate to the residual?
+- It's not the identical to the thing we are directly optimizing, but they relate.
+- The geometric representation of 8-point algorithm:
+	- What we are optimizing in 8-point algorithm is the coplanarity of 3 vectors w.r.t the relative camera orientation:
+		- The first vector is the translation between two camera. $^0t$
+		- Second, the ray passing through the point on image1 from the first camera (center of projection). $^1Rx_{1}$ 
+		- Then, the ray passing through the corresponding point on image2 from the second camera. $^2x_{2}$
+	- In other words, we pick the optimal relative camera orientation so that the 2 rays $^{1,2}$ approximately intersect. 
+- Then **what are we directly optimizing**? 
+	- Think about the epipolar geometry with calibated cameras, what we are optimizing is $x_{2}^T[T_{\times}]Rx_{1}=\lvert x_{2} \rvert\lvert t\wedge Rx_{1} \rvert cos\theta=\lvert x_{2} \rvert\lvert t\wedge Rx_{1} \rvert \sin\theta'$, where $\theta'$ is the angle between the vector $x_{2}$ and the plane spanned by $t$ and $Rx_{1}$. 
+	- Since the norms of conefficients are normalized and fixed, what we are directly optimizing actually is just $\theta'$, we are finding the relative camera orientation ($R|t$) to minimize the angle $\theta'$, so that $t$, $Rx_{1}$, $x_{2}$ are coplanar.
+- What's **the relation between this objective and the residual**?
+
+
+## 2. Find Relative Camera Orientation (R|t)
 ### Essential Matrix
 Recall Essential Matrix is calibrated version of $F$.
+$$E=K_{2}^TFK_{1}$$
+

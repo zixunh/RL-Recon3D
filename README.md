@@ -178,14 +178,12 @@ def normalize_matrix(x,y,r=np.sqrt(2)):
 	- In other words, we pick the optimal relative camera orientation so that the 2 rays $^{1,2}$ approximately intersect. 
 - Then **what are we directly optimizing**? Is it equivalent to the residual?
 	- Think about the epipolar geometry with calibated cameras, what we are optimizing is:
-
-		$$
-		\lvert x_{2}^T[T_{\times}]Rx_{1} \rvert=
-		\lvert \lvert x_{2} \rvert \rvert *\lvert \lvert t\wedge Rx_{1} \rvert\rvert*\lvert cos\theta \rvert=
-		\lvert \lvert x_{2} \rvert \rvert *\lvert \lvert t\wedge Rx_{1} \rvert\rvert*\lvert\sin\theta' \rvert=
-		\lvert \lvert t\wedge Rx_{1} \rvert\rvert*d_{2\to1}
-		$$
-		
+$$
+\lvert x_{2}^T[T_{\times}]Rx_{1} \rvert=
+\lvert \lvert x_{2} \rvert \rvert *\lvert \lvert t\wedge Rx_{1} \rvert\rvert*\lvert cos\theta \rvert=
+\lvert \lvert x_{2} \rvert \rvert *\lvert \lvert t\wedge Rx_{1} \rvert\rvert*\lvert\sin\theta' \rvert=
+\lvert \lvert t\wedge Rx_{1} \rvert\rvert*d_{2\to1}
+$$	
 	, where $\theta'=\frac{\pi}{2}-\theta$ is the angle between the vector $x_{2}$ and the optimal epipolar plane spanned by $t$ and $Rx_{1}$. 
 	- So we can see the term $\lvert \lvert x_{2} \rvert \rvert *\lvert\sin\theta' \rvert=d_{2\to1}$  is actually the distance between the point in image2 and the corresponding epipolar plane.
 	- We can further derive the remaining term into $\lvert \lvert t\wedge Rx_{1} \rvert\rvert = \lvert \lvert t\rvert \rvert *\lvert \lvert Rx_{1} \rvert\rvert*\lvert\sin\beta \rvert$. This is the distance between the second camera (center of projection) and the ray $Rx_{1}$. This term might look useless for optimization goal, even though we can see that the whole expression turns to zero when $\beta=0$, i.e., $x_{1}$ overlaps its epipolar, $d_{1\to2}=0$.

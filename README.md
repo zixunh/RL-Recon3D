@@ -184,7 +184,7 @@ $$
 \lvert \lvert x_{2} \rvert \rvert *\lvert \lvert t\wedge Rx_{1} \rvert\rvert*\lvert cos\theta \rvert=
 \lvert \lvert x_{2} \rvert \rvert *\lvert \lvert t\wedge Rx_{1} \rvert\rvert*\lvert\sin\theta' \rvert=
 \lvert \lvert t\wedge Rx_{1} \rvert\rvert*d_{2\to1}
-$$	
+$$
 
 	- So we can see the term $\lvert \lvert x_{2} \rvert \rvert *\lvert\sin\theta' \rvert=d_{2\to1}$  is actually the distance between the point in image2 and the corresponding epipolar plane.
 	- We can further derive the remaining term into $\lvert \lvert t\wedge Rx_{1} \rvert\rvert = \lvert \lvert t\rvert \rvert *\lvert \lvert Rx_{1} \rvert\rvert*\lvert\sin\beta \rvert$. This is the distance between the second camera (center of projection) and the ray $Rx_{1}$. This term might look useless for optimization goal, even though we can see that the whole expression turns to zero when $\beta=0$, i.e., $x_{1}$ overlaps its epipolar, $d_{1\to2}=0$.

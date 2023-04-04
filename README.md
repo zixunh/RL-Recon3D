@@ -19,7 +19,7 @@ While $rank(A)$ should be 8, if there is no noise, but in real world, we would s
 This equation should be overdetermined if we have enough correspondings. To solve it, we can see if we do SVD on $A \in R^{N\times9}$, the linear system becomes $U\Sigma V^T\vec{f}=0 \to \Sigma V^T\vec{f}=0$, where $V \in R^{9 \times 9}$. An approximate solution can be found by solving $argmin_{\vec{f}}\lvert \lvert \Sigma V^T\vec{f} \rvert \rvert_{2}^2$.
 
 We can approximately set $f$ as the transpose of the row entries of $V^T$, i.e. column vector of $V$, corresponding to the smallest singular value in $\Sigma$. 
-1. Because $V$ is an orthogonal matrix, the row entries of $V^T$ are orthogonal with each other, i.e. the dot product between should be zero. By set $\vec{f}$ as one singular vector, we will have $V^Tf=[0,0,0,0,0,0,0,0,\lvert \lvert \vec{f} \rvert \rvert_{2}^2]^T=\begin{bmatrix}0_{8 \times 1}\\ 1 \\ \end{bmatrix}_{9 \times1}$
+1. Because $V$ is an orthogonal matrix, the row entries of $V^T$ are orthogonal with each other, i.e. the dot product between should be zero. By set $\vec{f}$ as one singular vector, we will have $V^Tf=[0,0,0,0,0,0,0,0,\lvert\lvert\vec{f}\rvert\rvert_{2}^2]^T=\begin{bmatrix}0_{8 \times 1}\\ 1 \\ \end{bmatrix}_{9 \times1}$
 2. Assume singular values in $\Sigma$ is sorted, the optimal minimal value of this expression will be determined by the last (smallest) singular value $\sigma_{9}=\sigma_{min}$. 
 $$\lvert \lvert \Sigma V^T\vec{f} \rvert  \rvert_{2}^2 =\lvert \lvert  \begin{bmatrix}
 diag(\sigma_{i})_{9 \times 9}\\  \\

@@ -62,7 +62,7 @@ To solve this equation, we need to use 8 point algorithom, that is, at least 8 p
 x,y,x_,y_ = matches[:,0], matches[:,1], matches[:,2], matches[:,3]
 '''concat''' 
 A = np.stack((x_*x, x_*y,x_,y_*x,y_*y,y_,x,y),axis=1)
-A = concat((A, np.ones((A.shape[0],1))), axis=1
+A = concat((A, np.ones((A.shape[0],1))), axis=1)
 ```
 
 ### Approximate solutions based on SVD

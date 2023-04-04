@@ -87,6 +87,7 @@ diag(\sigma_{i})_{9 \times 9}\\
 ### Normalization and Denormalization
 If we need to do normalization on (non-homogeneous) points before we do eight point algorithm, we can assume nomalized points are $\tilde{x}=\frac{x-\mu}{\sigma}\gamma$, where $\gamma$ is the scale factor.
 For homogeneous space, it's equivalent to $\tilde{x}=Tx$. that is:
+
 $$
 \begin{bmatrix}
 \tilde{u}\\ 
@@ -102,7 +103,9 @@ $$
 u\\ 
 v\\ 
 1
-\end{bmatrix}$$
+\end{bmatrix}
+$$
+
 After nomalization, we can continue to solve $\tilde{x_{2}}^T\tilde{F}\tilde{x_{1}}=0$. But remember to denormalize it after we get $\tilde{F}$ from the SVD. Since $\tilde{x_{2}}^T\tilde{F}\tilde{x_{1}}=x_{2}^TT_{2}^T\tilde{F}T_{1}x_{1}=0$, we can get $F=T_{2}^T\tilde{F}T_{1}$.
 
 ### Essential Matrix

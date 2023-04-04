@@ -53,6 +53,16 @@ $$
 That is, $\vec{f}$ represents the fundamental matrix in the form of a 9-dim vector, and it must be (approximately) orthogonal to the vector $\tilde{x}$ which is constructed by a pair of corresponding points. 
 To solve this equation, we need to use 8 point algorithom, that is, at least 8 pairs of corresponding points should be involved. Each pair can derive an equation based on epipolar geometry. By stacking these equations, then we will have a linear system $A\vec{f}=0$, where each row entry of $A$ is constructed by a pair of matches. And $f$ is a non-zero vector and belongs to the Null-space of this matrix $A$. i.e. $\vec{f} \in N(A)$ s.t. $\lvert \lvert \vec{f} \rvert \rvert\neq 0$. Since we don't care the scale of fundamental matrix, we just set $$\lvert \lvert \vec{f} \rvert \rvert=1$$.
 
+```python
+'''
+here we use x,y,x_,y_ to indicate u,v,u',v' 
+'''
+x,y,x_,y_ = matches[:,0], matches[:,1], matches[:,2], matches[:,3]
+'''concat''' 
+A = np.stack((x_*x, x_*y,x_,y_*x,y_*y,y_,x,y),axis=1)
+A = concat((A, np.ones((A.shape[0],1))), axis=1
+```
+
 ### Approximate solutions based on SVD
 While $rank(A)$ should be 8, if there is no noise, but in real world, we would see $rank(A)>8$, i.e. there is no exact solution to this linear system.
 This equation should be overdetermined if we have enough correspondings. To solve it, we can see if we do SVD on $A \in R^{N\times9}$, the linear system becomes $U\Sigma V^T\vec{f}=0 \to \Sigma V^T\vec{f}=0$, where $V \in R^{9 \times 9}$. An approximate solution can be found by solving $argmin_{\vec{f}}\lvert \lvert \Sigma V^T\vec{f} \rvert \rvert_{2}^2$.
@@ -87,7 +97,7 @@ diag(\sigma_{i})_{9 \times 9}\\
 
 ```python
 def fundamental_matrix(matches):
-	'''normalize'''
+    '''normalize'''
     x,y,x_,y_ = matches[:,0], matches[:,1], matches[:,2], matches[:,3]
     t1 = normalize_matrix(x,y)
     t2 = normalize_matrix(x_,y_)

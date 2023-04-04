@@ -7,12 +7,14 @@ x_{2}^T=
 u' & v'& 1 \\
 \end{bmatrix}
 $$
+
 $$
 x_{1}=
 \begin{bmatrix}
 u\\v\\1
 \end{bmatrix}
 $$
+
 $$
 F=
 \begin{bmatrix}

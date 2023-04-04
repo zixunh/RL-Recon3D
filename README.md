@@ -55,7 +55,9 @@ To solve this equation, we need to use 8 point algorithom, that is, at least 8 p
 
 ```python
 '''
-here we use x,y,x_,y_ to indicate u,v,u',v' 
+	here we use x,y,x_,y_ to indicate u,v,u',v'
+	% matches(i,0:1) is a point in the first image
+	% matches(i,2:3) is the corresponding point in the second image 
 '''
 x,y,x_,y_ = matches[:,0], matches[:,1], matches[:,2], matches[:,3]
 '''concat''' 

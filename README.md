@@ -157,6 +157,10 @@ def normalize_matrix(x,y,r=np.sqrt(2)):
 
 
 ### Residual Error
+The residual is defined as the mean squared distance between the points in the two images and the corresponding epipolar lines. Since $Fx_{1}$ can be interpreted as the nomal vector of the epipolar plane spanned by the baseline $t$ and $Rx_{1}$, we can use the following expression to express the dist:
+$$dist_{2\to 1}=\frac{\lvert x_{2}^TFx_{1} \rvert}{\lvert \lvert Fx_{1} \rvert  \rvert }$$
+Then we have the residual error $residual=\frac{1}{2n}\sum (dist_{2\to 1}^2+dist_{1\to 2}^2)$
+
 
 
 

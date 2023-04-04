@@ -1,6 +1,6 @@
 ### Epipolar Constaint
 Based on epipolar geometry, we have $x_{2}^TFx_{1}=0$, where $F$ is the fundamental matrix, and 
-$x_{2}^T=\begin{bmatrix}u'&v'&1\end{bmatrix}$,
+$$x_{2}^T=\begin{bmatrix}u'&v'&1\end{bmatrix}$$,
 $x_{1}=\begin{bmatrix}u\\v\\1\end{bmatrix}$,
 $F=\begin{bmatrix}f_{11}&f_{12}&f_{13}\\f_{21}&f_{22}&f_{23}\\f_{31}&f_{32}&f_{33}\end{bmatrix}$
 

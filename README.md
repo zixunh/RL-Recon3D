@@ -29,9 +29,7 @@ $$
 
 ### Eight (pair of) points algorithm
 We can first rewrite it into:
-$$
-u'uf_{11}+u'vf_{12}+u'f_{13}+v'uf_{21}+v'vf_{22}+v'f_{23}+uf_{31}+vf_{32}+f_{33}=0
-$$
+$$u'uf_{11}+u'vf_{12}+u'f_{13}+v'uf_{21}+v'vf_{22}+v'f_{23}+uf_{31}+vf_{32}+f_{33}=0$$
 $$
 \tilde{x} \cdot \vec{f} =
 \begin{bmatrix}

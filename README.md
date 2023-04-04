@@ -50,7 +50,7 @@ f_{33}
 $$
 
 That is, $\vec{f}$ represents the fundamental matrix in the form of a 9-dim vector, and it must be (approximately) orthogonal to the vector $\tilde{x}$ which is constructed by a pair of corresponding points. 
-To solve this equation, we need to use 8 point algorithom, that is, at least 8 pairs of corresponding points should be involved. Each pair can derive an equation based on epipolar geometry. By stacking these equations, then we will have a linear system $A\vec{f}=0$, where each row entry of $A$ is constructed by a pair of matches. And $f$ is a non-zero vector and belongs to the Null-space of this matrix $A$. i.e. $\vec{f} \in N(A)$ s.t. $\lvert \lvert \vec{f} \rvert \rvert\neq 0$. Since we don't care the scale of fundamental matrix, we just set $\lvert \lvert \vec{f} \rvert \rvert=1$.
+To solve this equation, we need to use 8 point algorithom, that is, at least 8 pairs of corresponding points should be involved. Each pair can derive an equation based on epipolar geometry. By stacking these equations, then we will have a linear system $A\vec{f}=0$, where each row entry of $A$ is constructed by a pair of matches. And $f$ is a non-zero vector and belongs to the Null-space of this matrix $A$. i.e. $\vec{f} \in N(A)$ s.t. $\lvert \lvert \vec{f} \rvert \rvert\neq 0$. Since we don't care the scale of fundamental matrix, we just set $$\lvert \lvert \vec{f} \rvert \rvert=1$$.
 
 ### Approximate solutions based on SVD
 While $rank(A)$ should be 8, if there is no noise, but in real world, we would see $rank(A)>8$, i.e. there is no exact solution to this linear system.

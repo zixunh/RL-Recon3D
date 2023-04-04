@@ -1,4 +1,5 @@
-### Epipolar Constaint
+## Find Fundamental Matrix Using Epipolar Constraint
+### Epipolar Constraint
 Based on epipolar geometry, we have $x_{2}^TFx_{1}=0$, where $F$ is the fundamental matrix, and 
 
 $$
@@ -84,6 +85,29 @@ diag(\sigma_{i})_{9 \times 9}\\
 3. After solve $f$, we can reshape it back to $F\in R^{3 \times3}$.
 4. Think about essential matrix $E=t\wedge R=[t_{\times}]R$, where $[t_{\times}]$ has rank 2. So we need to enforce $F$ has rank 2 as well.
 
+```python
+def fundamental_matrix(matches):
+	'''normalize'''
+    x,y,x_,y_ = matches[:,0], matches[:,1], matches[:,2], matches[:,3]
+    t1 = normalize_matrix(x,y)
+    t2 = normalize_matrix(x_,y_)
+    x,y,x_,y_ = normalize(x), normalize(y), normalize(x_), normalize(y_)
+    '''concat''' 
+    A = np.stack((x_*x, x_*y,x_,y_*x,y_*y,y_,x,y),axis=1)
+    A = concat((A, np.ones((A.shape[0],1))),axis=1)
+    '''solve SVD'''
+    u,s,vh = np.linalg.svd(A)
+    f = vh[-1, :]
+    F = f.reshape(3,3)
+    '''rank = 2'''
+    u,s,vh = np.linalg.svd(F)
+    s[-1]=0
+    F = u@np.diag(s)@vh
+    '''denormalize'''
+    F = t2.T@F@t1
+    return F
+```
+
 ### Normalization and Denormalization
 If we need to do normalization on (non-homogeneous) points before we do eight point algorithm, we can assume nomalized points are $\tilde{x}=\frac{x-\mu}{\sigma}\gamma$, where $\gamma$ is the scale factor.
 For homogeneous space, it's equivalent to $\tilde{x}=Tx$. that is:
@@ -107,6 +131,16 @@ v\\
 $$
 
 After nomalization, we can continue to solve $\tilde{x_{2}}^T\tilde{F}\tilde{x_{1}}=0$. But remember to denormalize it after we get $\tilde{F}$ from the SVD. Since $\tilde{x_{2}}^T\tilde{F}\tilde{x_{1}}=x_{2}^TT_{2}^T\tilde{F}T_{1}x_{1}=0$, we can get $F=T_{2}^T\tilde{F}T_{1}$.
+```python
+def normalize(x, r=np.sqrt(2)):
+    return (x-np.mean(x))/(np.std(x))*r #, np.mean(x), np.std(x)
+def normalize_matrix(x,y,r=np.sqrt(2)):
+    T = np.stack(([r/np.std(x), 0, -r*np.mean(x)/np.std(x)],
+                [0, r/np.std(y), -r*np.mean(y)/np.std(y)],
+                [0, 0, 1]), axis = 1)
+    return T
+```
+### Residual Error
 
 ### Essential Matrix
 Recall Essential Matrix is calibrated version of $F$.

@@ -184,9 +184,7 @@ $$
 \lvert \lvert x_{2} \rvert \rvert *\lvert \lvert t\wedge Rx_{1} \rvert\rvert*\lvert cos\theta \rvert=
 \lvert \lvert x_{2} \rvert \rvert *\lvert \lvert t\wedge Rx_{1} \rvert\rvert*\lvert\sin\theta' \rvert=
 \lvert \lvert t\wedge Rx_{1} \rvert\rvert*d_{2\to1}
-$$
-
-, where $\theta'=\frac{\pi}{2}-\theta$ is the angle between the vector $x_{2}$ and the optimal epipolar plane spanned by $t$ and $Rx_{1}$. 
+$$, where $\theta'=\frac{\pi}{2}-\theta$ is the angle between the vector $x_{2}$ and the optimal epipolar plane spanned by $t$ and $Rx_{1}$. 
 	- So we can see the term $\lvert \lvert x_{2} \rvert \rvert *\lvert\sin\theta' \rvert=d_{2\to1}$  is actually the distance between the point in image2 and the corresponding epipolar plane.
 	- We can further derive the remaining term into $\lvert \lvert t\wedge Rx_{1} \rvert\rvert = \lvert \lvert t\rvert \rvert *\lvert \lvert Rx_{1} \rvert\rvert*\lvert\sin\beta \rvert$. This is the distance between the second camera (center of projection) and the ray $Rx_{1}$. This term might look useless for optimization goal, even though we can see that the whole expression turns to zero when $\beta=0$, i.e., $x_{1}$ overlaps its epipolar, $d_{1\to2}=0$.
 	- Now we can prove that the expression we are optimizing is not equivalent to the residual error. When $\beta=0$ and $\theta'\neq 0$, the epipolar constraint $\lvert x_{2}^T[T_{\times}]Rx_{1} \rvert$ equals zero, while the residual error $(d_{1\to2}^2+d_{2\to1}^2)/2$ equals $\frac{1}{2}d_{2\to1}^2$ which may not be zero.

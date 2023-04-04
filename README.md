@@ -7,19 +7,11 @@ x_{2}^T=
 u' & v'& 1 \\
 \end{bmatrix}
 $$
-
 ,
-$x_{1}=\begin{bmatrix}u\\v\\1\end{bmatrix}$,
-$F=\begin{bmatrix}f_{11}&f_{12}&f_{13}\\f_{21}&f_{22}&f_{23}\\f_{31}&f_{32}&f_{33}\end{bmatrix}$
+$$x_{1}=\begin{bmatrix}u\\v\\1\end{bmatrix}$$
+,
+$$F=\begin{bmatrix}f_{11}&f_{12}&f_{13}\\f_{21}&f_{22}&f_{23}\\f_{31}&f_{32}&f_{33}\end{bmatrix}$$
 
-$$
-\begin{bmatrix}
-a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
-a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
-\vdots & \vdots & \ddots & \vdots \\
-a_{m,1} & a_{m,2} & \cdots & a_{m,n}
-\end{bmatrix}
-$$
 
 ### Eight (pair of) points algorithm
 We can first rewrite it into:

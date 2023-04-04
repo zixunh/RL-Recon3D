@@ -1,5 +1,5 @@
-%%Zixun Huang 3038564193 Apr 3rd%%
-
+<!-- %%Zixun Huang 3038564193 Apr 3rd%%
+ -->
 ## 1. How to calculate Fundamental Matrix
 ### Epipolar Constraint
 Based on epipolar geometry, we have $x_{2}^TFx_{1}=0$, where $F$ is the fundamental matrix, and 

@@ -11,7 +11,9 @@ $$
 $$
 x_{1}=
 \begin{bmatrix}
-u\\v\\1
+u\\
+v\\
+1
 \end{bmatrix}
 $$
 

@@ -92,17 +92,17 @@ $$
 \begin{bmatrix}
 \tilde{u}\\ 
 \tilde{v}\\ 
-1
+1\\
 \end{bmatrix} = 
 \begin{bmatrix}
 \frac{\gamma_{u}}{\sigma_{u}} & 0 & -\frac{\gamma_{u}\mu_{u}}{\sigma_{u}}\\ 
 0 & \frac{\gamma_{v}}{\sigma_{v}} & -\frac{\gamma_{v}\mu_{v}}{\sigma_{v}}\\ 
-0 & 0 & 1
+0 & 0 & 1\\
 \end{bmatrix}
 \begin{bmatrix}
 u\\ 
 v\\ 
-1
+1\\
 \end{bmatrix}
 $$
 

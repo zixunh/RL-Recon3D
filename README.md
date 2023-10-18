@@ -1,5 +1,4 @@
-<!-- %%Zixun Huang 3038564193 Apr 3rd%%
- -->
+# A Tutorial for Architectural Engineers / Designers to Get Started in 3D Vision.
 
 ## 1. How to calculate Fundamental Matrix
 ### Epipolar Constraint

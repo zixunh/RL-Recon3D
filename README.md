@@ -62,17 +62,15 @@ loss = behaviour_cloning_loss(ground_truth_actions, predicted_actions)
 ```
 ####
 
-### Downstream Task
-#### 3D Reconstruction
-I provided a tutorial that includes a mathematical proof to help fellow students grasp the fundamentals of 3D Reconstruction as well. Once you have obtained the trajectory using this repository, you can then refer to the tutorial [here](https://github.com/zixunh/RL-Recon3D/tree/main/recon) for guidance on performing 3D Reconstruction.
-
-#### Digital-Twin Tracking
-You can use this repository as data collection trajectory generator to build a Digital-Twin Tracking Dataset. To do this, please refer to our previous work ([DTTD1](https://github.com/augcog/DTTDv1), [DTTD2](https://github.com/augcog/DTTD2)).
-
 ### Contributing
 Downstream tasks using our task building tool, such as building a 3D reconstruction dataset or a digital-twin tracking dataset, in addition to bug fixes, are very welcome! When building your task, please ensure that you run the task validator in the task building tool.
 
 A full contribution guide is coming soon!
+#### 1. 3D Reconstruction
+I provided a tutorial that includes a mathematical proof to help fellow students grasp the fundamentals of 3D Reconstruction as well. Once you have obtained the trajectory using this repository, you can then refer to the tutorial [here](https://github.com/zixunh/RL-Recon3D/tree/main/recon) for guidance on performing 3D Reconstruction.
+
+#### 2. Digital-Twin Tracking
+You can use this repository as data collection trajectory generator to build a Digital-Twin Tracking Dataset. To do this, please refer to our previous work ([DTTD1](https://github.com/augcog/DTTDv1), [DTTD2](https://github.com/augcog/DTTD2)).
 
 ### Acknowledgements
 Our Work is built upon [RLBench](https://github.com/stepjam/RLBench). Models were supplied from turbosquid.com, cgtrader.com, free3d.com, thingiverse.com, and cadnav.com. The digital twin tracking dataset that I used for imitation learning were offered by [OnePose](https://github.com/zju3dv/OnePose) and [DTTD2](https://github.com/augcog/DTTD2).

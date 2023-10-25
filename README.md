@@ -1,4 +1,5 @@
 # Robot Learning Benchmark for 3D Object Reconstruction
+This resource was created as a final project for UC Berkeley's Deep Reinforcement Learning course CS 285. I created a RLBench-based pipeline for robot learning on 3d object reconstruction trajectory finding. You can start with the following materials:
 
 ### Dependency
 Version 4.1 of CoppeliaSim is required. Download:
@@ -27,15 +28,15 @@ pip install git+https://github.com/stepjam/RLBench.git
 ```
 
 
-# Contributing
+### Contributing
 New tasks using our task building tool, in addition to bug fixes, are very welcome! When building your task, please ensure that you run the task validator in the task building tool.
 
 A full contribution guide is coming soon!
 
-# Acknowledgements
+### Acknowledgements
 Our Work is built upon [RLBench](https://github.com/stepjam/RLBench). Models were supplied from turbosquid.com, cgtrader.com, free3d.com, thingiverse.com, and cadnav.com. And the camera pose dataset was offered by [OnePose](https://github.com/zju3dv/OnePose) and [DTTD2](https://github.com/augcog/DTTD2).
 
-# Relevant Citation
+### Relevant Citation
 ```
 @misc{DTTDv2,
       title={Robust Digital-Twin Localization via An RGBD-based Transformer Network and A Comprehensive Evaluation on a Mobile Dataset}, 

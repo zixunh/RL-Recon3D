@@ -63,7 +63,7 @@ loss = behaviour_cloning_loss(ground_truth_actions, predicted_actions)
 ####
 
 ### Contributing
-Downstream tasks such as building a 3D reconstruction dataset or a digital-twin tracking dataset, in addition to bug fixes, are very welcome! When building your task, please ensure that you run the task validator in the task building tool.
+Downstream tasks such as building a 3D reconstruction dataset or a digital-twin tracking dataset, in addition to bug fixes, are very welcome! When building your dataset, please ensure that you run the task validator in the task building tool.
 
 A full contribution guide is coming soon!
 #### 1. 3D Reconstruction

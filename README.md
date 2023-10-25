@@ -1,4 +1,4 @@
-# A Tutorial for Architectural Engineers / Designers to Get Started in 3D Vision.
+# Robot Learning Benchmark for 3D Object Reconstruction
 
 ## 1. How to calculate Fundamental Matrix
 ### Epipolar Constraint

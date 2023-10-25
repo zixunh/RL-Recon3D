@@ -1,6 +1,9 @@
 
-## 1. How to calculate Fundamental Matrix
-### Epipolar Constraint
+# Multi-view 3D Reconstruction
+I provided a tutorial that includes a mathematical proof to help fellow students grasp the fundamentals of 3D Reconstruction. Additionally, I've included a simplified guide to the **Structure-from-Motion** (SfM) implementation within this notebook.  If you're seeking a more practical implementation, you can explore [SuperGlue](https://github.com/magicleap/SuperPointPretrainedNetwork) for  more robust correspondence detection and matching, or you can refer to [COLMAP](https://colmap.github.io/) for SfM.
+
+### 1. How to calculate Fundamental Matrix
+#### Epipolar Constraint
 Based on epipolar geometry, we have $x_{2}^TFx_{1}=0$, where $F$ is the fundamental matrix, and 
 
 $$
@@ -29,7 +32,7 @@ f_{31}&f_{32}&f_{33}
 $$
 
 
-### Eight (pair of) points algorithm
+#### Eight (pair of) points algorithm
 We can first rewrite it into:
 $$u'uf_{11}+u'vf_{12}+u'f_{13}+v'uf_{21}+v'vf_{22}+v'f_{23}+uf_{31}+vf_{32}+f_{33}=0$$
 
@@ -66,7 +69,7 @@ A = np.stack((x_*x, x_*y,x_,y_*x,y_*y,y_,x,y),axis=1)
 A = concat((A, np.ones((A.shape[0],1))), axis=1)
 ```
 
-### Approximate solutions based on SVD
+#### Approximate solutions based on SVD
 While $rank(A)$ should be 8, if there is no noise, but in real world, we would see $rank(A)>8$, i.e. there is no exact solution to this linear system.
 This equation should be overdetermined if we have enough correspondings. To solve it, we can see if we do SVD on $A \in R^{N\times9}$, the linear system becomes $U\Sigma V^T\vec{f}=0 \to \Sigma V^T\vec{f}=0$, where $V \in R^{9 \times 9}$. An approximate solution can be found by solving $argmin_{\vec{f}}\lvert \lvert \Sigma V^T\vec{f} \rvert \rvert_{2}^2$.
 
@@ -120,7 +123,7 @@ def fundamental_matrix(matches):
     return F
 ```
 
-### Normalization and Denormalization
+#### Normalization and Denormalization
 If we need to do normalization on (non-homogeneous) points before we do eight point algorithm, we can assume nomalized points are $\tilde{x}=\frac{x-\mu}{\sigma}\gamma$, where $\gamma$ is the scale factor.
 For homogeneous space, it's equivalent to $\tilde{x}=Tx$. that is:
 
@@ -154,16 +157,14 @@ def normalize_matrix(x,y,r=np.sqrt(2)):
 ```
 
 
-### Residual Error
+#### Residual Error
 The residual is defined as the mean squared distance between the points in the two images and the corresponding epipolar lines. Since $Fx_{1}$ can be interpreted as the nomal vector of the epipolar plane spanned by the baseline $t$ and $Rx_{1}$, we can use the following expression to express the dist:
 $$dist_{2\to 1}=\frac{\lvert x_{2}^TFx_{1} \rvert}{\lvert \lvert Fx_{1} \rvert  \rvert }$$
 Then we have the residual error $residual=\frac{1}{2n}\sum (dist_{2\to 1}^2+dist_{1\to 2}^2)$
 
 
 
-
-
-## 2. Find Relative Camera Orientation (R|t)
-### Essential Matrix
+### 2. Find Relative Camera Orientation (R|t)
+#### Essential Matrix
 Recall Essential Matrix is calibrated version of $F$.
 $$E=K_{2}^TFK_{1}$$

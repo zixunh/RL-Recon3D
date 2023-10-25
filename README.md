@@ -72,7 +72,7 @@ I provided a tutorial that includes a mathematical proof to help fellow students
 #### 2. Digital-Twin Tracking
 You can use this repository as data collection trajectory generator to build a Digital-Twin Tracking Dataset. To do this, please refer to our previous work ([DTTD1](https://github.com/augcog/DTTDv1), [DTTD2](https://github.com/augcog/DTTD2)).
 
-### Contact: 
+### Contact
 [zixun[at]berkeley[dot]edu](mailto:zixun@berkeley.edu), [https://vivecenter.berkeley.edu/](https://vivecenter.berkeley.edu/)
 
 ### Acknowledgements

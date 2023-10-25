@@ -27,6 +27,35 @@ Then you can install RLBench directly via pip:
 pip install git+https://github.com/stepjam/RLBench.git
 ```
 
+### Dataset
+A RGB(D)-based digital twin tracking dataset with posed images will be used in imitation learning process. Download our dataset from this [link](https://drive.google.com/drive/u/1/folders/1U7YJKSrlWOY5h2MJRc_cwJPkQ8600jbd) and origanize the folder:
+
+```
+RL-Recon3D
+├── ...
+└── dataset
+    └── dttd_iphone
+        ├── dataset_config
+        ├── dataset.py
+        └── DTTD_IPhone_Dataset
+            └── root
+                ├── cameras
+                │   └── iphone14pro_camera1
+                ├── data
+                │   ├── scene1
+                │   │   └── data
+                │   │   │   ├── 00001_color.jpg
+                │   │   │   ├── 00001_depth.png
+                │   │   │   └── ...
+                |   │   └── scene_meta.yaml
+                │   ├── scene2
+                │   │   └── data
+                |   │   └── scene_meta.yaml
+                │   └── ...
+                └── ...
+```
+
+
 ### Trajectory Finding
 This repository is the implementation code focusing on **Trajectory Finding** for 3d object reconstruction and digital-twin tracking. 
 

@@ -73,7 +73,7 @@ I provided a tutorial that includes a mathematical proof to help fellow students
 You can use this repository as data collection trajectory generator to build a Digital-Twin Tracking Dataset. To do this, please refer to our previous work ([DTTD1](https://github.com/augcog/DTTDv1), [DTTD2](https://github.com/augcog/DTTD2)).
 
 ### Contact: 
-[zixun[at]berkeley[dot]edu](mailto:zixun@berkeley.edu)
+[zixun[at]berkeley[dot]edu](mailto:zixun@berkeley.edu), [https://vivecenter.berkeley.edu/](https://vivecenter.berkeley.edu/)
 
 ### Acknowledgements
 This work is built upon [RLBench](https://github.com/stepjam/RLBench). Models were supplied from turbosquid.com, cgtrader.com, free3d.com, thingiverse.com, and cadnav.com. The digital twin tracking dataset that I used for imitation learning were offered by [DTTD2](https://github.com/augcog/DTTD2) and [OnePose](https://github.com/zju3dv/OnePose).

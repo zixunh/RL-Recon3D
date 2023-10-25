@@ -91,10 +91,7 @@ $$
 \begin{bmatrix}
 diag(\sigma_{i})_{9 \times 9}\\
 0_{(N-9)\times9}
-\end{bmatrix}_{N \times 9}
-$$
-$$
-\begin{bmatrix}
+\end{bmatrix}_{N \times 9}@\begin{bmatrix}
 0_{8 \times 1}\\ 
 1 \\ 
 \end{bmatrix}_{9 \times1} 

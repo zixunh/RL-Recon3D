@@ -1,5 +1,5 @@
-# Robot Learning Benchmark for 3D Object Reconstruction
-This resource was created as a final project for UC Berkeley's Deep Reinforcement Learning course CS 285. I created a RLBench-based pipeline for robot learning on 3d object reconstruction trajectory finding. You can start with the following materials:
+# Robot Learning Benchmark for 3D Object Reconstruction Trajectory Finding
+This resource was created as a final project for UC Berkeley's Deep Reinforcement Learning course [CS 285](https://rail.eecs.berkeley.edu/deeprlcourse/). I created a RLBench-based pipeline for robot learning on 3d object reconstruction trajectory finding. You can start with the following materials:
 
 ### Dependency
 Version 4.1 of CoppeliaSim is required. Download:

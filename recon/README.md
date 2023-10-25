@@ -87,15 +87,14 @@ $$
 2. Assume singular values in $\Sigma$ is sorted, the optimal minimal value of this expression will be determined by the last (smallest) singular value $\sigma_{9}=\sigma_{min}$. 
 
 $$
-\lvert\lvert\Sigma V^T\vec{f}\rvert\rvert_{2}^2=
-\lvert\lvert  
+\lvert\lvert\Sigma V^T\vec{f}\rvert\rvert_{2}^2=\lvert\lvert  
 \begin{bmatrix}
-diag(\sigma_{i})_{9 \times9}\\
+diag(\sigma_{i})_{9\times9}\\
 0_{(N-9)\times9}
-\end{bmatrix}_{N \times9}\begin{bmatrix}
-0_{8 \times1}\\ 
+\end{bmatrix}_{N\times9}\begin{bmatrix}
+0_{8\times1}\\ 
 1\\ 
-\end{bmatrix}_{9 \times1}\rvert\rvert_{2}^2=\sigma_{min}^2
+\end{bmatrix}_{9\times1}\rvert\rvert_{2}^2=\sigma_{min}^2
 $$
 
 3. After solve $f$, we can reshape it back to $F\in R^{3 \times3}$.

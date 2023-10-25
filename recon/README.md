@@ -92,11 +92,14 @@ $$
 diag(\sigma_{i})_{9 \times 9}\\
 0_{(N-9)\times9}
 \end{bmatrix}_{N \times 9}
+$$
+$$
 \begin{bmatrix}
 0_{8 \times 1}\\ 
 1 \\ 
 \end{bmatrix}_{9 \times1} 
-\rvert  \rvert_{2}^2=\sigma_{min}^2$$
+\rvert  \rvert_{2}^2=\sigma_{min}^2
+$$
 
 3. After solve $f$, we can reshape it back to $F\in R^{3 \times3}$.
 4. Think about essential matrix $E=t\wedge R=[t_{\times}]R$, where $[t_{\times}]$ has rank 2. So we need to enforce $F$ has rank 2 as well.

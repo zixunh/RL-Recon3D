@@ -27,8 +27,8 @@ Then you can install RLBench directly via pip:
 pip install git+https://github.com/stepjam/RLBench.git
 ```
 
-###
-
+### Trajectory Finding
+This repository is the implementation code focusing on 3D Object Reconstruction **Trajectory Finding**. I provided a tutorial that includes a mathematical proof to help fellow students grasp the fundamentals of 3D Reconstruction as well. Once you have obtained the trajectory using this repository, you can then refer to this tutorial for guidance on performing 3D Reconstruction.
 
 
 ### Contributing

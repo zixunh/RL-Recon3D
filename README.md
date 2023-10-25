@@ -39,25 +39,25 @@ Our Work is built upon [RLBench](https://github.com/stepjam/RLBench). Models wer
 ### Relevant Citation
 ```
 @misc{DTTDv2,
-      title={Robust Digital-Twin Localization via An RGBD-based Transformer Network and A Comprehensive Evaluation on a Mobile Dataset}, 
-      author={Zixun Huang and Keling Yao and Seth Z. Zhao and Chuanyu Pan and Tianjian Xu and Weiyu Feng and Allen Y. Yang},
-      year={2023},
-      eprint={2309.13570},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+    title={Robust Digital-Twin Localization via An RGBD-based Transformer Network and A Comprehensive Evaluation on a Mobile Dataset}, 
+    author={Zixun Huang and Keling Yao and Seth Z. Zhao and Chuanyu Pan and Tianjian Xu and Weiyu Feng and Allen Y. Yang},
+    year={2023},
+    eprint={2309.13570},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
 }
 
 @article{james2019rlbench,
-  title={RLBench: The Robot Learning Benchmark \& Learning Environment},
-  author={James, Stephen and Ma, Zicong and Rovick Arrojo, David and Davison, Andrew J.},
-  journal={IEEE Robotics and Automation Letters},
-  year={2020}
+    title={RLBench: The Robot Learning Benchmark \& Learning Environment},
+    author={James, Stephen and Ma, Zicong and Rovick Arrojo, David and Davison, Andrew J.},
+    journal={IEEE Robotics and Automation Letters},
+    year={2020}
 }
 
 @article{sun2022onepose,
-	title={{OnePose}: One-Shot Object Pose Estimation without {CAD} Models},
-	author = {Sun, Jiaming and Wang, Zihao and Zhang, Siyu and He, Xingyi and Zhao, Hongcheng and Zhang, Guofeng and Zhou, Xiaowei},
-	journal={CVPR},
-	year={2022},
+    title={{OnePose}: One-Shot Object Pose Estimation without {CAD} Models},
+    author = {Sun, Jiaming and Wang, Zihao and Zhang, Siyu and He, Xingyi and Zhao, Hongcheng and Zhang, Guofeng and Zhou, Xiaowei},
+    journal={CVPR},
+    year={2022},
 }
 ```

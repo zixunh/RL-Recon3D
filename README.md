@@ -64,12 +64,12 @@ loss = behaviour_cloning_loss(ground_truth_actions, predicted_actions)
 
 
 ### Contributing
-New tasks using our task building tool, in addition to bug fixes, are very welcome! When building your task, please ensure that you run the task validator in the task building tool.
+Downstream tasks using our task building tool, such as building a 3D reconstruction dataset or a digital-twin tracking dataset, in addition to bug fixes, are very welcome! When building your task, please ensure that you run the task validator in the task building tool.
 
 A full contribution guide is coming soon!
 
 ### Acknowledgements
-Our Work is built upon [RLBench](https://github.com/stepjam/RLBench). Models were supplied from turbosquid.com, cgtrader.com, free3d.com, thingiverse.com, and cadnav.com. The digital twin tracking dataset was offered by [OnePose](https://github.com/zju3dv/OnePose) and [DTTD2](https://github.com/augcog/DTTD2).
+Our Work is built upon [RLBench](https://github.com/stepjam/RLBench). Models were supplied from turbosquid.com, cgtrader.com, free3d.com, thingiverse.com, and cadnav.com. The digital twin tracking dataset that I used for imitation learning were offered by [OnePose](https://github.com/zju3dv/OnePose) and [DTTD2](https://github.com/augcog/DTTD2).
 
 ### Relevant Citation
 ```

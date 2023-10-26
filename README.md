@@ -27,6 +27,18 @@ Then you can install RLBench directly via pip:
 pip install git+https://github.com/stepjam/RLBench.git
 ```
 
+Configure your X config. Leave out '--use-display-device=None' if the GPU is headless, i.e. if it has no display outputs.
+```
+sudo nvidia-xconfig -a --use-display-device=None --virtual=1280x1024
+echo -e 'Section "ServerFlags"\n\tOption "MaxClients" "2048"\nEndSection\n' \
+    | sudo tee /etc/X11/xorg.conf.d/99-maxclients.conf
+```
+
+Then spin up the X server whenever you want to run RLBench:
+```
+sudo nohup X :99 & disown
+```
+
 ### Dataset
 A RGB(D)-based digital twin tracking dataset with posed images will be used in imitation learning process. Download DTTD iPhone dataset from this [link](https://drive.google.com/drive/u/1/folders/1U7YJKSrlWOY5h2MJRc_cwJPkQ8600jbd) and origanize the folder:
 

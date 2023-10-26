@@ -1,4 +1,4 @@
-# A Robot Learning Benchmark For 3D Object Reconstruction Trajectory Finding.
+# A Robot Learning Benchmark For Digital Twin Tracking Trajectory Finding
 This resource was started as a final project for UC Berkeley's Deep Reinforcement Learning course [CS 285](https://rail.eecs.berkeley.edu/deeprlcourse/). I created a RLBench-based pipeline for trajectory finding on 3d object reconstruction and digital-twin tracking. You can start with the following materials:
 
 ### Dependency

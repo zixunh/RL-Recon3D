@@ -134,3 +134,5 @@ out/*
 *nohup.out
 *.pth 
 CoppeliaSim*
+PyRep/*
+RLBench/*

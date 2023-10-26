@@ -1,0 +1,6 @@
+[submodule "RLBench"]
+	path = RLBench
+	url = https://github.com/stepjam/RLBench
+[submodule "PyRep"]
+	path = PyRep
+	url = https://github.com/stepjam/PyRep

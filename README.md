@@ -60,6 +60,8 @@ RL-Recon3D
 This repository is the implementation code focusing on **Trajectory Finding** for 3d object reconstruction and digital-twin tracking. 
 
 #### Imitation Learning
+![Screenshot from 2023-10-25 19-55-02](https://github.com/zixunh/RL-Recon3D/assets/106426767/24104d92-270b-4e8d-ad60-a268a346cd6f)
+
 ```
 import numpy as np
 from rlbench.action_modes.action_mode import MoveArmThenGripper

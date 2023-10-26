@@ -28,7 +28,7 @@ pip install git+https://github.com/stepjam/RLBench.git
 ```
 
 ### Dataset
-A RGB(D)-based digital twin tracking dataset with posed images will be used in imitation learning process. Download [DTTD2](https://arxiv.org/abs/2309.13570) dataset from this [link](https://drive.google.com/drive/u/1/folders/1U7YJKSrlWOY5h2MJRc_cwJPkQ8600jbd) and origanize the folder:
+A RGB(D)-based digital twin tracking dataset with posed images will be used in imitation learning process. Download DTTD iPhone dataset from this [link](https://drive.google.com/drive/u/1/folders/1U7YJKSrlWOY5h2MJRc_cwJPkQ8600jbd) and origanize the folder:
 
 ```
 RL-Recon3D

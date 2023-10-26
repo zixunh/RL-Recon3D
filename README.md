@@ -29,9 +29,7 @@ pip install git+https://github.com/stepjam/RLBench.git
 
 Configure your X config. Leave out '--use-display-device=None' if the GPU is headless, i.e. if it has no display outputs.
 ```
-sudo nvidia-xconfig -a --use-display-device=None --virtual=1280x1024
-echo -e 'Section "ServerFlags"\n\tOption "MaxClients" "2048"\nEndSection\n' \
-    | sudo tee /etc/X11/xorg.conf.d/99-maxclients.conf
+bash Xconfig.sh
 ```
 
 Then spin up the X server whenever you want to run RLBench:

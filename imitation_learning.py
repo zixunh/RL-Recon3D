@@ -19,7 +19,7 @@ class ImitationLearning(object):
 
 # To use 'saved' demos, set the path below, and set live_demos=False
 live_demos = False
-DATASET = '' if live_demos else 'dataset/DTTD_iPhone_Dataset'
+DATASET = '' if live_demos else 'dataset/dttd_iphone/DTTD_iPhone_Dataset'
 
 obs_config = ObservationConfig()
 obs_config.set_all(True)
